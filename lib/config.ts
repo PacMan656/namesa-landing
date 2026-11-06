@@ -20,3 +20,6 @@ export const whatsappFormatado = () => {
   if (n.length < 10) return '';
   return `(${n.slice(0, 2)}) ${n.slice(2, n.length - 4)}-${n.slice(-4)}`;
 };
+
+export const basePath = process.env.NEXT_PUBLIC_GITHUB_PAGES === 'true' ? '/namesa-landing' : '';
+export const localPath = (path: string) => `${basePath}${path}`;

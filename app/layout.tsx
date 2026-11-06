@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     siteName: 'NaMesa',
     title: 'NaMesa — Seu cardápio vira pedido',
     description: site.descricao,
-    images: [{ url: '/img/pdv-cozinha.webp', width: 1280, height: 780, alt: 'Tela da cozinha do NaMesa' }],
+    images: [{ url: `${site.url}/img/pdv-cozinha.webp`, width: 1280, height: 780, alt: 'Tela da cozinha do NaMesa' }],
   },
-  alternates: { canonical: '/' },
+  alternates: { canonical: site.url },
 };
 
 export const viewport: Viewport = {

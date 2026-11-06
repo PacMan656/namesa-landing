@@ -1,5 +1,7 @@
 'use client';
 
+import { localPath } from '@/lib/config';
+
 import { useState } from 'react';
 import { linkWhatsApp, site } from '@/lib/config';
 import { Icon } from './Icon';
@@ -23,6 +25,21 @@ export function FormContato() {
     e.preventDefault();
     const form = e.currentTarget;
     const dados = Object.fromEntries(new FormData(form)) as Record<string, string>;
+    if (process.env.NEXT_PUBLIC_GITHUB_PAGES === 'true') {
+      if (dados.site) return;
+      const mensagem = 'Quero testar o NaMesa!\n\n' +
+        Object.entries(dados).filter(([k]) => !['site', 'consentimento'].includes(k))
+          .map(([k, v]) => `${k}: ${v}`).join('\n');
+      if (site.whatsapp) {
+        window.location.href = linkWhatsApp(mensagem);
+      } else if (site.email) {
+        window.location.href = `mailto:${site.email}?subject=Teste%20NaMesa&body=${encodeURIComponent(mensagem)}`;
+      } else {
+        setErro('Canal de contato indisponivel. Tente novamente mais tarde.');
+        setEstado('erro');
+      }
+      return;
+    }
     setEstado('enviando');
     setErro('');
     try {
@@ -115,7 +132,7 @@ export function FormContato() {
       <label className="consentimento">
         <input type="checkbox" name="consentimento" value="sim" required />
         <span>
-          Concordo em ser contatado e com a <a href="/privacidade" target="_blank">Política de Privacidade</a>.
+          Concordo em ser contatado e com a <a href={localPath('/privacidade')} target="_blank">Política de Privacidade</a>.
         </span>
       </label>
       {estado === 'erro' && <p className="form-erro" role="alert">{erro}</p>}

@@ -1,3 +1,4 @@
+import { localPath } from '@/lib/config';
 import Image from 'next/image';
 import { depoimentos } from '@/lib/depoimentos';
 import { site } from '@/lib/config';
@@ -51,8 +52,8 @@ export function ProvaSocial() {
           </div>
         )}
         <div className="galeria" data-reveal>
-          <Image src="/img/pdv-caixa.webp" alt="Frente de caixa do NaMesa com o consumo de cada mesa" width={1280} height={780} sizes="(max-width: 900px) 92vw, 540px" />
-          <Image src="/img/pdv-qr-codes.webp" alt="Tela de QR Codes das mesas prontos para imprimir" width={1280} height={780} sizes="(max-width: 900px) 92vw, 540px" />
+          <Image src={localPath('/img/pdv-caixa.webp')} alt="Frente de caixa do NaMesa com o consumo de cada mesa" width={1280} height={780} sizes="(max-width: 900px) 92vw, 540px" />
+          <Image src={localPath('/img/pdv-qr-codes.webp')} alt="Tela de QR Codes das mesas prontos para imprimir" width={1280} height={780} sizes="(max-width: 900px) 92vw, 540px" />
         </div>
       </div>
     </section>

@@ -1,11 +1,16 @@
 import type { NextConfig } from 'next';
 
+const pages = process.env.NEXT_PUBLIC_GITHUB_PAGES === 'true';
+
 const nextConfig: NextConfig = {
+  ...(pages ? { output: 'export', basePath: '/namesa-landing', trailingSlash: true } : {}),
   poweredByHeader: false,
   images: {
     formats: ['image/avif', 'image/webp'],
+    unoptimized: pages,
   },
   async headers() {
+    if (pages) return [];
     return [
       {
         source: '/(.*)',

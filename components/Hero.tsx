@@ -1,3 +1,4 @@
+import { localPath } from '@/lib/config';
 import Image from 'next/image';
 import { site } from '@/lib/config';
 import { Icon } from './Icon';
@@ -36,7 +37,7 @@ export function Hero() {
           <div className="tela">
             <div className="tela-barra" aria-hidden="true"><i /><i /><i /><span>cozinha · NaMesa</span></div>
             <Image
-              src="/img/pdv-cozinha.webp"
+              src={localPath('/img/pdv-cozinha.webp')}
               alt="Tela da cozinha do NaMesa com pedidos em A fazer, Em preparo e Pronto"
               width={1280}
               height={780}
@@ -50,7 +51,7 @@ export function Hero() {
           <div className="celular">
             <div className="celular-notch" aria-hidden="true" />
             <Image
-              src="/img/app-cardapio.webp"
+              src={localPath('/img/app-cardapio.webp')}
               alt="Cardápio do NaMesa aberto no celular do cliente"
               width={390}
               height={844}

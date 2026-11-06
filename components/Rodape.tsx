@@ -1,3 +1,4 @@
+import { localPath } from '@/lib/config';
 import { linkWhatsApp, site } from '@/lib/config';
 import { Icon } from './Icon';
 import { Logo } from './Logo';
@@ -11,10 +12,10 @@ export function Rodape() {
           <p>Cardápio digital com pedido na mesa.</p>
         </div>
         <nav aria-label="Rodapé" className="rodape-links">
-          <a href="/#contato">Contato</a>
+          <a href={localPath('/#contato')}>Contato</a>
           {site.whatsapp && <a href={linkWhatsApp()} target="_blank" rel="noopener noreferrer">WhatsApp</a>}
-          <a href="/termos">Termos de uso</a>
-          <a href="/privacidade">Política de privacidade</a>
+          <a href={localPath('/termos')}>Termos de uso</a>
+          <a href={localPath('/privacidade')}>Política de privacidade</a>
         </nav>
       </div>
       <div className="wrap rodape-base">

@@ -1,3 +1,4 @@
+import { localPath } from '@/lib/config';
 import type { Metadata } from 'next';
 import { PaginaLegal } from '@/components/Legal';
 import { site } from '@/lib/config';
@@ -34,7 +35,7 @@ export default function Termos() {
       </p>
       <h2>5. Dados</h2>
       <p>
-        O tratamento de dados pessoais segue a nossa <a href="/privacidade">Política de privacidade</a> e a Lei Geral de
+        O tratamento de dados pessoais segue a nossa <a href={localPath('/privacidade')}>Política de privacidade</a> e a Lei Geral de
         Proteção de Dados (Lei nº 13.709/2018).
       </p>
       <h2>6. Contato</h2>

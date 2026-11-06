@@ -1,3 +1,4 @@
+import { localPath } from '@/lib/config';
 import { Logo } from './Logo';
 
 const links = [
@@ -11,15 +12,15 @@ export function Header() {
   return (
     <header className="topo">
       <div className="wrap topo-in">
-        <a href="/#inicio" className="marca" aria-label="NaMesa, voltar ao início">
+        <a href={localPath('/#inicio')} className="marca" aria-label="NaMesa, voltar ao início">
           <Logo />
         </a>
         <nav aria-label="Seções" className="topo-nav">
           {links.map((l) => (
-            <a key={l.href} href={l.href}>{l.label}</a>
+            <a key={l.href} href={localPath(l.href)}>{l.label}</a>
           ))}
         </nav>
-        <a href="/#contato" className="btn btn-sm">Testar grátis</a>
+        <a href={localPath('/#contato')} className="btn btn-sm">Testar grátis</a>
       </div>
     </header>
   );

@@ -1,3 +1,4 @@
+import { localPath } from '@/lib/config';
 import Image from 'next/image';
 import { Icon } from './Icon';
 
@@ -50,7 +51,7 @@ export function ComoFunciona() {
             <li key={p.t} className="passo" data-reveal style={{ '--d': `${i * 120}ms` } as React.CSSProperties}>
               <span className="passo-num">{i + 1}</span>
               <div className="passo-img">
-                <Image src={p.img} alt={p.alt} width={p.w} height={p.h} sizes="(max-width: 900px) 60vw, 220px" />
+                <Image src={localPath(p.img)} alt={p.alt} width={p.w} height={p.h} sizes="(max-width: 900px) 60vw, 220px" />
               </div>
               <h3>{p.t}</h3>
               <p>{p.d}</p>
@@ -100,7 +101,7 @@ export function Recursos() {
               <p>Avisos de novos pedidos e chamados, mapa de mesas e lançamento manual.</p>
             </div>
             <div className="tile-print">
-              <Image src="/img/garcom-mesas.webp" alt="Mapa de mesas no app do garçom" width={390} height={844} sizes="200px" />
+              <Image src={localPath('/img/garcom-mesas.webp')} alt="Mapa de mesas no app do garçom" width={390} height={844} sizes="200px" />
             </div>
           </article>
 

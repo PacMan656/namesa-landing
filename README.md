@@ -67,3 +67,16 @@ public/img/             prints reais do NaMesa em WebP
 3. Quando tiver clientes, coloque os depoimentos **reais** (com autorização) em `lib/depoimentos.ts`.
 4. Troque os prints de demonstração por fotos e vídeos reais dos pratos quando tiver.
 5. Publique na Vercel (grátis para começar): importe o repositório, cole as variáveis do `.env.local` e pronto.
+
+## GitHub Pages
+
+A publicacao estatica usa `.github/workflows/pages.yml` a cada push em `main`.
+URL: https://pacman656.github.io/namesa-landing/
+
+Build local: `node scripts/build-pages.mjs` (saida em `out/`).
+O script preserva a API para uso com servidor e a exclui apenas durante a exportacao.
+No Pages, o formulario abre WhatsApp ou e-mail; configure as variaveis de repositorio
+`NEXT_PUBLIC_WHATSAPP` e/ou `NEXT_PUBLIC_EMAIL` em Settings > Secrets and variables > Actions > Variables.
+Sem um canal configurado, o formulario informa que o contato esta indisponivel.
+GitHub Pages precisa estar habilitado com Source: GitHub Actions.
+Repositorios privados exigem um plano GitHub compativel com Pages.
